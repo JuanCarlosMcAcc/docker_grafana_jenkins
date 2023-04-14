@@ -119,7 +119,7 @@ services:
 
   jenkins:
     image: jenkins/jenkins
-    container_name: jenkins
+    container_name: jenkins_git
     restart: unless-stopped
     expose:
       - 8081
