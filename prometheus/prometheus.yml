@@ -48,6 +48,10 @@ alerting:
     static_configs:
     - targets: 
       - 'alertmanager:9093'
+  alert_relabel_configs:
+    - source_labels: [severity]
+      regex: critical
+      action: keep
 
 #  - job_name: 'nginx'
 #    scrape_interval: 10s
