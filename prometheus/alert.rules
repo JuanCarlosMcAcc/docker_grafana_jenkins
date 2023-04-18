@@ -69,7 +69,7 @@ groups:
       description: "Jenkins memory consumption is at {{ humanize $value}}."
 
   - alert: JenkinsJobFailed
-    expr: default_jenkins_builds__last_build_result_ordinal{job="my-job"} == 0
+    expr: default_jenkins_builds_last_build_result_ordinal{job="my-job"} == 0
     for: 1m
     labels:
       severity: critical
