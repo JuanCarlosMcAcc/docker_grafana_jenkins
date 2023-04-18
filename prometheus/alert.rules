@@ -68,3 +68,11 @@ groups:
       summary: "Jenkins high memory usage"
       description: "Jenkins memory consumption is at {{ humanize $value}}."
 
+  - alert: JenkinsJobFailed
+  expr: default_jenkins_builds__last_build_result_ordinal{job="my-job"} == 1
+  for: 1m
+  labels:
+    severity: critical
+  annotations:
+    summary: "Jenkins job failed"
+    description: "The job 'my-job' has failed in Jenkins."

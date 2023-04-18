@@ -35,10 +35,12 @@ scrape_configs:
       - targets: ['pushgateway:9091']
 
   - job_name: 'jenkins'
+    metrics_path: /prometheus
     scrape_interval: 10s
     honor_labels: true
     static_configs:
-      - targets: ['jenkins:8081']
+      - targets: ['jenkins:8080']
+
 
 alerting:
   alertmanagers:
