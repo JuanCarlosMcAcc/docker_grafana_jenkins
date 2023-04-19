@@ -3,12 +3,25 @@ groups:
   rules:
   - alert: monitor_service_down
     expr: up == 0
-    for: 10s
+    for: 30s
     labels:
       severity: critical
     annotations:
       summary: "Monitor service non-operational"
       description: "Service {{ $labels.instance }} is down."
+  
+  - alert: jenkins_job_failed
+    expr: jenkins_job_status{job="job_name"} == 1
+    for 30s
+    labels:
+      severity: "critical",
+      job: "job_name",
+      instance: "jenkins_server"
+
+    annotations:
+      summary: "Job {{ $labels.job }} failed"
+      description: "Job {{ $labels.job }} failed on Jenkins server {{ $labels.instance }}"
+    
 
 - name: host
   rules:

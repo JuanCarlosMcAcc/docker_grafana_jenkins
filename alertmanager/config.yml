@@ -1,4 +1,9 @@
 route:
+  group_by: [alertname, job]
+
+  routes:
+  - match:
+      job: 'jenkins'
     receiver: 'slack'
 
 receivers:
