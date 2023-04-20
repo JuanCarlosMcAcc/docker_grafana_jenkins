@@ -19,7 +19,7 @@ groups:
       instance: "jenkins_server"
     annotations:
       summary: "Job {{ $labels.job }} failed"
-      description: "Job {{ $labels.job }} failed on Jenkins server {{ $labels.instance }}"
+      description: "Job {{ $labels.job }} failed on Jenkins server {{ $labels.instance }} "
     
 - name: host
   rules:
