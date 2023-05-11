@@ -12,7 +12,7 @@ groups:
   
   - alert: jenkins_job_failed
     expr: jenkins_job_status{job="job_name"} == 1
-    for 30s
+    for: 30s
     labels:
       severity: "critical",
       job: "job_name",
